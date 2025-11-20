@@ -1,10 +1,11 @@
-import sys
 import random
+import sys
+
 import pygame
 
 # ---- Konstanta Permainan ----
-WIDTH, HEIGHT = 600, 400          # Ukuran layar
-CELL_SIZE = 20                    # Ukuran grid (px)
+WIDTH, HEIGHT = 600, 400  # Ukuran layar
+CELL_SIZE = 20  # Ukuran grid (px)
 GRID_W = WIDTH // CELL_SIZE
 GRID_H = HEIGHT // CELL_SIZE
 
@@ -121,7 +122,9 @@ def main():
 
                 # Restart saat Game Over
                 if game_over and event.key == pygame.K_r:
-                    snake, direction, next_direction, food, score, game_over = reset_game()
+                    snake, direction, next_direction, food, score, game_over = (
+                        reset_game()
+                    )
 
         # ---- Update State ----
         if not game_over:
@@ -167,8 +170,12 @@ def main():
 
             go_text = big_font.render("GAME OVER", True, WHITE)
             info_text = font.render("Press R to Restart or Esc to Quit", True, WHITE)
-            screen.blit(go_text, (WIDTH // 2 - go_text.get_width() // 2, HEIGHT // 2 - 40))
-            screen.blit(info_text, (WIDTH // 2 - info_text.get_width() // 2, HEIGHT // 2 + 5))
+            screen.blit(
+                go_text, (WIDTH // 2 - go_text.get_width() // 2, HEIGHT // 2 - 40)
+            )
+            screen.blit(
+                info_text, (WIDTH // 2 - info_text.get_width() // 2, HEIGHT // 2 + 5)
+            )
 
         pygame.display.flip()
         clock.tick(FPS)
